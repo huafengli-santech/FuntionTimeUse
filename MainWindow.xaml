@@ -1,0 +1,59 @@
+﻿<Window x:Class="ACSTimeUse.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ACSTimeUse"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <UniformGrid Columns="5">
+            <RadioButton Name="UP_mode" Content="上位模式" VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="True"/>
+            <RadioButton Name="Down_mode" Content="Buffer模式" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Button x:Name="Connect_Button" Click="Connect_Button_Click" Content="控制器连接"/>
+            <Button x:Name="SimConnect_Button" Click="SimConnect_Button_Click" Content="仿真连接"/>
+            <Border Name="State_led" CornerRadius="20" Width="20" Height="20" Background="Gray" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </UniformGrid>
+        <UniformGrid Grid.Row="1" Columns="3">
+            <Button Content="SetAcc" Name="SetAcc_Button" Click="SetAcc_Button_Click" />
+            <Button Content="SetJerk" Name="SetJerk_Button" Click="SetJerk_Button_Click"/>
+            <Button Content="PTP/R[请注意安全,未使用线程操作界面会卡死]"  Name="PTP_Button" Click="PTP_Button_Click"/>
+        </UniformGrid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="0" x:Name="ACC_Box"/>
+                <TextBlock Grid.Row="1" x:Name="ACC_Calc_Box" FontSize="15"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="0" x:Name="Jerk_Box"/>
+                <TextBlock Grid.Row="1" x:Name="Jerk_Calc_Box" FontSize="15"/>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="0" x:Name="PTP_Box"/>
+                <TextBlock Grid.Row="1" x:Name="PTP_Calc_Box" FontSize="15"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
